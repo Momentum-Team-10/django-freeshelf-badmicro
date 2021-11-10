@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %}
+<div class="messages ba br2 b--silver bg-washed-green pa2">
+  {% for message in messages %}
+  <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+<section class="book-list">
+  <h1>Book Repository</h1>
+  {% for book in books %}
+  <div class="book mv4 pa3 br1 measure-narrow ba b--light-silver">
+      <a href={% url 'show_book' pk=book.pk %} class="book_title f3 fw6 db dark-pink no-underline underline-hover">{{ book.title }}</a>
+      <p "add in your book data later noob" </p>
+  </div>
+  {% endfor %}
+</section>
+{% endblock content %}
